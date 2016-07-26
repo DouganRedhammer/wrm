@@ -20,6 +20,7 @@ C:\>wrm help
 =======
   - Windows
   - PowerShell 2.0+
+  - [7 zip](http://www.7-zip.org/download.html)
   - Have Administrator privileges 
 
 ### INSTALL
