@@ -1,0 +1,2 @@
+$errorColor="Red"
+$successColor="Green"
