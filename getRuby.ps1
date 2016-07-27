@@ -14,8 +14,6 @@ function downloadFile($url, $targetFile)
         -SourceIdentifier WebClient.DownloadProgressChanged `
         -Action { $Global:DPCEventArgs = $EventArgs }    
 
- Write-Host  $url $targetFile $targetFileLocation
-
     Write-Progress -Activity 'Downloading file' -Status $url
     $client.DownloadFileAsync($url, $targetFileLocation)
    
@@ -28,8 +26,6 @@ function downloadFile($url, $targetFile)
    
     Write-Progress -Activity 'Downloading file' -Status $url -Complete
 
- 
-
     Unregister-Event -SourceIdentifier WebClient.DownloadProgressChanged
     Unregister-Event -SourceIdentifier WebClient.DownloadFileComplete
     $client.Dispose()
@@ -41,4 +37,15 @@ function downloadFile($url, $targetFile)
     [GC]::Collect()    
 }
 
+function Init() {
+	if (!(Test-Path($PSScriptRoot+"\downloads\"))) {
+		New-Item -ItemType Directory -Force -Path $PSScriptRoot"\downloads\"
+		Write-Host Created $PSScriptRoot"\downloads\" -foregroundcolor $successColor
+       }
+	if (!(Test-Path($PSScriptRoot+"\rubies\"))) {
+		New-Item -ItemType Directory -Force -Path $PSScriptRoot"\rubies\"
+		Write-Host Created $PSScriptRoot"\rubies\" -foregroundcolor $successColor
+	}	
+}
+Init
 #downloadFile "http://dl.bintray.com/oneclick/rubyinstaller/ruby-2.3.0-x64-mingw32.7z" "ruby-2.3.0-x64-mingw32"

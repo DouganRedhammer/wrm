@@ -46,7 +46,6 @@ function ReadRubies() {
                Write-Host ($_.node.InnerXML) -foregroundcolor $successColor
           }
      }
-
 }
 
 function SetCurrentRuby($rubyName) {
