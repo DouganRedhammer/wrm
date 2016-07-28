@@ -6,7 +6,7 @@ wrm is a tool to manage multiple versions of ruby on Windows. Unlike [pik](https
 
 
 ```console
-C:\>wrm help
+PS C:\>wrm help
     list                          List Installed Rubies.
     use            <ruby name>    Set the current Ruby.
     install                       Install a Ruby.
@@ -27,6 +27,22 @@ C:\>wrm help
 =======
 Current Version: 0.1.1  
 https://github.com/DouganRedhammer/wrm/releases/latest
+
+If you recieve the error  
+```console
+PS C:\>wrm
+wrm: cannot be loades because running scripts is disabled on this system. 
+For more information, see about_Execution_Policies at http://go.microsoft.com/fwlink/?LinkID=135170
+```
+Open PowerShell as Administrator, then enter
+```console
+PS C:\>Set-ExecutionPolicy RemoteSigned
+````
+For more information about Set-ExecutionPolicy see:  
+[Running Scripts Downloaded from the Internet](https://blogs.msdn.microsoft.com/powershell/2007/05/05/running-scripts-downloaded-from-the-internet/)  
+[Set-ExecutionPolicy](https://technet.microsoft.com/en-us/library/hh849812.aspx)  
+
+
 
 ### License
 =======
